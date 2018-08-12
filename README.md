@@ -75,6 +75,34 @@
             component={this.renderField}
         />
     ```
+## Creating the action 
+- create an action creator with the values from `onSubmit`
+```javascript
+/* action index */
+export function createPost(values) {
+    return {
+        type: CREATE_POST,
+        payload: request
+    }
+}
+```
+- wire up the action in the component
+    ```javascript
+    import { connect } from 'react-redux';
+    import { createPost } from '../actions';
+
+    export default reduxForm({
+        form: 'PostsNewForm'
+    })(
+        connect(null, { createPost })(<componentName>)
+    );
+    ```
+- use the action create in the submit function 
+    ```javascript
+    onSubmit(values) {        
+        this.props.createPost(values)
+    }
+    ```
 
 ## Validating forms 
 - wire up the validate function to the component 
@@ -119,4 +147,20 @@
         /* ... */
         <div> {field.meta.touched ? field.meta.error : ''} </div>
     }
+    ```
+    
+ ## Redirecting after form is sent 
+ - insert a callback in the action creator
+     ```javascript
+     export function createPost(values, callback) {
+        const request = axios.post(`${ROOT_URL}/posts${API_KEY}`, values)
+            .then(() => callback())
+        /***/
+    }
+    ```
+- when the action is called, redirect the user back to a certain page
+    ```javascript
+    this.props.createPost(values, () => {
+        this.props.history.push('/');
+    })
     ```
