@@ -44,7 +44,7 @@
         this.props.createPost(values);
     }
 
-    <form onSubmit={handleSubmit(this.onSubmit)}>
+    <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
         /* field tags will go here */
     </form>
     ```
