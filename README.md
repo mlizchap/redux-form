@@ -3,16 +3,16 @@
 - a reducer with actions built in
 
 ## Setup
-- `$ npm install redux-form`
+- install library: `$ npm install redux-form`
 - in the main reducer index file - import the reducer from redux-form and wire it into the root-reducer
-```javascript
-import { reducer as formReducer } from 'redux-form';
+    ```javascript
+    /* in reducer index file */
+    import { reducer as formReducer } from 'redux-form';
 
-const rootReducer = combineReducers({
-  form: formReducer
-});
-```
-
+    const rootReducer = combineReducers({
+        form: formReducer
+    });
+    ```
 
 - to setup component to Redux-Form 
     - reduxForm - acts similar to the `connect` function in redux 
@@ -23,16 +23,17 @@ const rootReducer = combineReducers({
 
     export default reduxForm({
         form: 'PostsNewForm' 
-    })(<component name>);
+    })(<componentName>);
     ```
-    - to have both redux form and other reducers/action creators 
-        ```javascript
-            export default reduxForm({
-                form: 'PostsNewForm'
-            })(
-                connect(null, { createPost })(PostsNew)
-            );
-        ```
+    - *OR to have both redux form and other reducers/action creators*
+    ```javascript
+        /* in component */
+        export default reduxForm({
+            form: 'PostsNewForm'
+        })(
+            connect(<reducer>, { <actionCreator> })(<componentName>)
+        );
+    ```
 ## Creating the form 
 - wrap the form in a `form` tag that has an obSubmit property with `handleSubmit` as the value
     - `handleSubmit` - a function built into redux-form, takes an argument which is a custom function that you write 
@@ -80,7 +81,9 @@ const rootReducer = combineReducers({
     - create a validation function and pass to redux form as a config object. 
     - the validate function takes an argument (`values`) that represents the users input. 
     ```javascript
-        function validate(values) { }
+        function validate(values) { 
+            /* validation logic will go here */
+        }
         
         export default reduxForm({
             form: 'PostsNewForm',
