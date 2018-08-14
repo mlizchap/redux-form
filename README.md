@@ -3,7 +3,7 @@
 - a reducer with actions built in
 
 ## Example
-[Redux Form User App](hhttps://github.com/mlizchap/redux-form-user-app)
+[Redux Form User App](https://github.com/mlizchap/redux-form-user-app)
 
 ## Setup
 - install library: `$ npm install redux-form`
