@@ -5,6 +5,14 @@
 ## Example
 [Redux Form User App](https://github.com/mlizchap/redux-form-user-app)
 
+## TOC
+- [Setup](#setup)
+- [The Form Tag](#creating-the-form)
+- [The Field Tags](#creating-the-form)
+- [The Action](#creating-the-action)
+- [Validation](#validating-forms)
+- [Redirecting the User](#redirecting-after-form-is-sent)
+
 ## Setup
 - install library: `$ npm install redux-form`
 - in the main reducer index file - import the reducer from redux-form and wire it into the root-reducer
