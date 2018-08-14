@@ -2,6 +2,9 @@
 
 - a reducer with actions built in
 
+## Example
+[Redux Form User App](hhttps://github.com/mlizchap/redux-form-user-app)
+
 ## Setup
 - install library: `$ npm install redux-form`
 - in the main reducer index file - import the reducer from redux-form and wire it into the root-reducer
@@ -52,9 +55,9 @@
 ## Creating the field tags 
 - make one field component per piece of state.  
     - Redux form will handle changes by user - (`onChange` handler, `setState`, etc), validation, and submit 
-        - can have its own properties which can then be used in the function that renders the display component (ex: `field.label`)
-        - to use the build in properties of field use `...field.input` 
-        - the `component` property - the value is a value that renders a display component 
+    - can have its own properties which can then be used in the function that renders the display component (ex: `field.label`)
+     - to use the build in properties of field use `...field.input` 
+     - the `component` property - the value is a value that renders a display component 
     ```javascript
         /* a function that renders the display of the component */
         renderField(field) {
