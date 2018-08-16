@@ -16,6 +16,7 @@
 ## Setup
 - install library: `$ npm install redux-form`
 - in the main reducer index file - import the reducer from redux-form and wire it into the root-reducer
+- make sure the form reducer goes *before* the other reducers that use it
     ```javascript
     /* in reducer index file */
     import { reducer as formReducer } from 'redux-form';
